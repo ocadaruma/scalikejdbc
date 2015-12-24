@@ -59,4 +59,13 @@ object GlobalSettings {
     (statement: String, params: Seq[Any], e: Throwable, tags: Seq[String]) => ()
   }
 
+  /**
+   * Specify TimeZone for java.sql.PreparedStatement#setTimestamp, setTime, setDate
+   */
+  var targetTimeZone: java.util.TimeZone = java.util.TimeZone.getDefault
+
+  /**
+   * Use org.joda.time.DateTime#toCalendar for java.sql.PreparedStatement#setTimestamp. Unless targetTimeZone will be used.
+   */
+  var useJodaDateTimeZoneForBindParams: Boolean = false
 }
